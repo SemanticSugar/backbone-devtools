@@ -28,10 +28,9 @@
       this.$el.empty().append(this.template({
         headers: this.headers
       }));
-      var view = this;
       this.collection.each(function(model) {
-        view.addItem(model);
-      });
+        this.addItem(model);
+      }, this);
       this.restoreScrollOffset();
       return this;
     },

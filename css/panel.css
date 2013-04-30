@@ -122,9 +122,9 @@ table .event,
 table .element,
 table .type,
 table .method {
-  min-width: 120px;
-  width: 120px;
-  max-width: 120px;
+  min-width: 320px;
+  width: 320px;
+  max-width: 320px;
 }
 
 th {

@@ -13,8 +13,14 @@
   var prettyInstanceName = function(object) {
     var name;
     name = object.constructor.name || instanceType(object);
+    if (object.models) {
+        name += " (" + object.models.length + " models)"
+    }
     if (object.cid) {
-      name = "" + name + ":" + object.cid;
+      name += ":" + object.cid;
+    }
+    if (object.id) {
+      name += ":" + object.id;
     }
     return name;
   };
