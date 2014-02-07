@@ -91,6 +91,13 @@ table {
   border-spacing: 0;
 }
 
+tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0);
+}
+tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
 table.headers {
   position: absolute;
   top: 0;
@@ -122,9 +129,15 @@ table .event,
 table .element,
 table .type,
 table .method {
+<<<<<<< HEAD
   min-width: 320px;
   width: 320px;
   max-width: 320px;
+=======
+  min-width: 200px;
+  width: 200px;
+  max-width: 200px;
+>>>>>>> f4a7ddc333ee29b0abd2e2aa33f29b66ae573c6f
 }
 
 th {
@@ -181,6 +194,7 @@ td.method {
   height: 22px;
   border-top: 1px solid #cacaca;
   background-image: -webkit-linear-gradient(rgb(243,243,243), rgb(235,235,235));
+  overflow: hidden;
 }
 
 #toolbar button {
