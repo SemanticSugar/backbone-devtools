@@ -7,6 +7,17 @@ It makes use of [Backbone.Debug][3] by Andrew Terris.
 
 Pull requests are welcome!
 
+Features
+--------
+
+* $view console variable after inspecting a DOM Element (points to the closest View instance)
+* Containing Views Hierarchy in Elements panel
+* Logs in Backbone Panel:
+  * Events
+  * Syncs
+  * View-DOM Binding
+  * Instantiated Objects
+
 Installing
 ----------
 
@@ -21,16 +32,21 @@ BDT is yet to be released, so you need to install it manually.
 3. Check *Developer mode* and click *Load unpacked extension*
 4. Choose the cloned repo directory
 
-Features
+
+Usage
 --------
 
-* $view console variable after inspecting a DOM Element (points to the closest View instance)
-* Containing Views Hierarchy in Elements panel
-* Logs in Backbone Panel:
-  * Events
-  * Syncs
-  * View-DOM Binding
-  * Instantiated Objects
+1. Open a new tab (for first time users)
+2. Open the Chrome Dev Tools
+3. Go to the Backbone Tab (Usually it will be near the *Console* tab)
+4. Make sure that *Inject Backbone.Debug (changing this will cause a page reload)* has been checked
+5. Create a new bookmark and add the following as its contents/url:
+<pre>
+javascript:(function(){var o=window.$view;if(!o)return;_.each(['Adroll.Collections','Adroll.Models','Adroll.Views','Dashboard.Collections','Dashboard.Models','Dashboard.Views'],function(ns){var parts=ns.split('.'),v=window;_.each(parts,function(p){v=v[p]});_.each(v,function(k,n){if(_.isFunction(k)&&o instanceof k){var p=' ';if(Object.getPrototypeOf(o)===k.prototype)p='*';console.log(p+ns+'.'+n);}});});})();
+</pre>
+6. Now when you *Inspect Element*, you can click on this bookmarklet and check the console for the view name.
+
+
 
 Known Limitations
 -----------------
